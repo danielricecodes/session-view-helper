@@ -1,6 +1,6 @@
 = session-view-helper
 
-Description goes here.
+Session View Helper is a small gem to help in seeing browser session information.  Just add <%= display_session_hash %> to your erb file and thats it!
 
 == Note on Patches/Pull Requests
  
