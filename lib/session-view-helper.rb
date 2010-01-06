@@ -1,6 +1,6 @@
 module SessionViewHelper
   def display_session_hash()
-    if RAILS_ENV!='production'    	
+    if RAILS_ENV=='development'    	
       concat(tag(:div, :id => "dev_container"))
       concat(content_tag(:h2, 'Session Variables - Only renders in development mode')) 
       session.collect {|name, content| concat(content_tag(:p, "#{name}: #{truncate(content.to_s, :length=>75)}", :id => "session_#{name}")) }           
