@@ -1,21 +1,28 @@
 module SessionViewHelper
   def display_session_hash()
-    if RAILS_ENV=='development'    	
-      concat(tag(:div, :id => "dev_container"))
-      concat(content_tag(:h2, 'Session Variables - Only renders in development mode')) 
-      session.collect {|name, content| concat(content_tag(:p, "#{name}: #{truncate(content.to_s, :length=>75)}", :id => "session_#{name}")) }           
-      concat('</div>')
-    end
+      append_div_tag + append_header + append_session_info + append_close_div_tag
+  end
+  
+  private
+  def append_div_tag
+    tag(:div, :id => "dev_container")
+  end
+  
+  def append_header
+    content_tag(:h2, 'Session Variables - Only renders in development mode')
+  end
+  
+  def append_session_info
+    retstr = ""
+    session.collect {|name, content| retstr << content_tag(:p, "#{name}: #{truncate(content.to_s, :length=>75)}", :id => "session_#{name}") }
+    return retstr
+  end
+  
+  def append_close_div_tag
+    '</div>'
   end
 end
 
 if defined?(ActionController)  
   ActionController::Base.helper(SessionViewHelper)
 end
-
-#<div id="dev_container">
-#  <h2>Session Variables - Only renders in development mode</h2>
-#  <% session.each do |name, content| %>
-#      <%= content_tag :p, "#{name}: #{truncate(content.to_s, :length=>75)}", :id => "session_#{name}" %>
-#    <% end %>
-#</div>
