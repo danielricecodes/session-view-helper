@@ -5,7 +5,7 @@ module SessionViewHelper
   
   private
   def append_div_tag
-    tag(:div, :id => "dev_container")
+    tag(:div, {:id => "dev_container"}, true, false)
   end
   
   def append_header
