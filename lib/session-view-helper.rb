@@ -13,9 +13,7 @@ module SessionViewHelper
   end
   
   def append_session_info
-    retstr = ""
-    session.collect {|name, content| retstr << content_tag(:p, "#{name}: #{truncate(content.to_s, :length=>75)}", :id => "session_#{name}") }
-    return retstr
+    session.to_yaml
   end
   
   def append_close_div_tag
