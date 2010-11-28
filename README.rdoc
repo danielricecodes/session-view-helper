@@ -1,6 +1,6 @@
 = session-view-helper
 
-Session View Helper is a small gem to help you see Browser session data in your rendered html pages.  I got pretty tired of having to guess or mess with my view templates just to debug something simple, so I created this gem for me own use.  Just add <%= display_session_hash %> to your erb file and thats it!
+Session View Helper is a small gem to help you see Browser session data in your rendered html pages.  I got pretty tired of having to guess or mess with my view templates just to debug something simple, so I created this gem for my own use.  Just add <%= display_session_hash %> to your erb file and thats it!
 
 If you want to restrict which environments the session helper renders in (say, only development), do this in Rails 3:
 
