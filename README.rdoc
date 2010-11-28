@@ -4,9 +4,9 @@ Session View Helper is a small gem to help you see Browser session data in your 
 
 If you want to restrict which environments the session helper renders in (say, only development), do this in Rails 3:
 
-<% if Rails.env == 'development' %>
-  <%= display_session_hash %>
-<% end %>
+  <% if Rails.env == 'development' %>
+    <%= display_session_hash %>
+  <% end %>
 
 == Note on Patches/Pull Requests
  
