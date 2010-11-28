@@ -5,7 +5,7 @@ module SessionViewHelper
   
   private
   def append_div_tag
-    tag(:div, {:id => "dev_container"}, true, false)
+    tag(:div, {:id => "dev_container", :style=>"width: 75%;margin: 0 auto;background-color: #aaa;padding: 20px 40px;border: solid 1px black;margin-top: 20px;color:black;"}, true, false)
   end
   
   def append_header
@@ -13,11 +13,11 @@ module SessionViewHelper
   end
   
   def append_session_info
-    session.to_yaml
+    simple_format(session.to_yaml.gsub(' ', '&nbsp;'))
   end
   
   def append_close_div_tag
-    '</div>'
+    "</div>".html_safe
   end
 end
 
