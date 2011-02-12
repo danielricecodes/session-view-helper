@@ -1,6 +1,6 @@
 module SessionViewHelper
   def display_session_hash()
-      append_div_tag + append_header + append_session_info + append_close_div_tag
+      append_div_tag + append_header + append_session_info + append_request_header + append_request + append_close_div_tag
   end
   
   private
@@ -15,6 +15,14 @@ module SessionViewHelper
   def append_session_info
     simple_format(session.to_yaml.gsub(' ', '&nbsp;'))
   end
+  
+  def append_request_header
+    content_tag(:h2, 'Request Data - Only renders in development mode')
+  end
+  
+  def append_request
+    simple_format(request.to_yaml.gsub(' ', '&nbsp;'))
+  end 
   
   def append_close_div_tag
     "</div>".html_safe
